@@ -21,7 +21,7 @@ python3 matchmaker/train.py --config-file config/train/defaults.yaml config/trai
 
 ### To inference
 ````
-python3 matchmaker/dense_retrieval.py encode+index+search --run-name $name --config config/dense_retrieval/$name.yaml
+python3 matchmaker/dense_retrieval.py encode+index+search --run-name {config_name} --config config/dense_retrieval/{config_name}.yaml
 
 ````
 

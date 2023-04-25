@@ -1,6 +1,7 @@
 expirement_base_path: "/scratch/project/neural_ir/dylan/balance_training/TAS-query-original"
 
-trained_model: /scratch/project/neural_ir/dylan/balance_training/TAS-query-original/2023-01-10_1745_both_tas_balanced-qd
+trained_model: "/scratch/project/neural_ir/dylan/balance_training/TAS-query-original/2023-02-21_1429_both_tas_balanced-d"
+
 
 collection_tsv: "/scratch/project/neural_ir/dylan/balance_training/dataset/msmarco/collection.tsv"
 
@@ -9,7 +10,6 @@ query_batch_size: 48
 
 onnx_use_inference: False
 dataloader_num_workers: 10 # 0 means only using the main thread (not recommended)
-continue_folder: "/scratch/project/neural_ir/dylan/balance_training/TAS-query-original/2023-01-12_2012_both_tas_balanced_qd-dr"
 
 query_sets:
   <msmarco>:
