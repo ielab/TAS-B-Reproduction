@@ -15,15 +15,22 @@ To seperate training file, run
 ### To train the distilled model
 ````
 cd matchmaker
-python3 matchmaker/train.py --config-file config/train/defaults.yaml config/train/data/msmarco.yaml config/train/models/bert_dot.yaml config/train/modes/exp/{model_choice}.yaml --run-name msmarco-${model_choice}
+python3 matchmaker/train.py \
+    --config-file config/train/defaults.yaml config/train/data/msmarco.yaml config/train/models/bert_dot.yaml config/train/modes/exp/{model_choice}.yaml \
+    --run-name msmarco-${model_choice}
+
 # for model_choice: please see all available yaml files in config/train/modes/exp/
 ````
 
 ### To inference
 ````
-python3 matchmaker/dense_retrieval.py encode+index+search --run-name {config_name} --config config/dense_retrieval/{config_name}.yaml
+python3 matchmaker/dense_retrieval.py encode+index+search --run-name {cmodel_choice} \
+        --config config/dense_rertrieval/base_setting.yaml config/dense_rertrieval/dataset/msmarco_dev.yaml config/dense_retrieval/model/example.yaml
 
+#Note: please specify the path of trained models in config/dense_retrieval/model/example.yaml
 ````
+
+
 
 
 
