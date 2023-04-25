@@ -1,0 +1,16 @@
+#
+# Model / training config with all non-path or collection params
+# --------------------------------------------------------------
+
+#
+# meta stuff
+#
+
+trained_model: config/huggingface_modelhub/sebastian-hofstaetter/distilbert-dot-margin_mse-T2-msmarco
+inference_batch_size: 1024
+random_seed: 208973249
+index_queries_tsv: "/scratch/itee/uqswan37/balance_training/dataset/msmarco/queries.train.tsv"
+use_fp16: True
+cluster_queries_tsv: "/scratch/itee/uqswan37/balance_training/dataset/msmarco/queries.train.tsv"
+expirement_base_path: "/scratch/itee/uqswan37/balance_training/TAS-query-original"
+

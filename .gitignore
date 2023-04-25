@@ -1,0 +1,13 @@
+Data_Sophia/
+esci-data-main
+cache
+envs
+pyserini
+rubbish
+.idea
+__pycache__
+TAS-query-original
+dataset
+NF-CATS-main
+matchmaker/config/huggingface_modelhub/sebastian-hofstaetter/colbert-distilbert-margin_mse-T2-msmarco
+matchmaker/config/huggingface_modelhub/sebastian-hofstaetter/distilbert-dot-margin_mse-T2-msmarco

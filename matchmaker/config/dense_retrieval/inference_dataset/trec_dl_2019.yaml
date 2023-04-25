@@ -1,0 +1,14 @@
+expirement_base_path: "/scratch/itee/uqswan37/balance_training/TAS-query-original"
+
+collection_tsv: "/scratch/itee/uqswan37/balance_training/dataset/msmarco/collection.tsv"
+
+collection_batch_size: 2048
+query_batch_size: 48
+
+query_sets:
+  <msmarco>:
+    queries_tsv: "/scratch/itee/uqswan37/balance_training/dataset/msmarco/msmarco-test2019-queries.tsv"
+    qrels: "/scratch/itee/uqswan37/balance_training/dataset/msmarco/2019qrels-pass.txt"
+    binarization_point: 2 # what minimum relevant grade to assume for binarized metrics (mrr, recall ...)
+    top_n: 1000 # how many results to return
+
