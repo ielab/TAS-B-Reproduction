@@ -6,29 +6,79 @@ In our project, there are two datasets that's been used: [MS_MARCO_passage_ranki
 ## To reproduce for MS_MARCO_passage_ranking
 
 ### Data preparation
-1. Download the dataset from [MS_MARCO_passage_ranking](https://microsoft.github.io/msmarco/Datasets.html) and put it in the folder `dataset/msmarco/`.
+1. Download the dataset from [MS_MARCO_passage_ranking](https://microsoft.github.io/msmarco/Datasets.html) and put it in the folder `dataset/msmarco/`. (You need: collection.tsv, all queries.tsv, all qrels.tsv, train_triples_qid_pid)
 2. Download the pre-computed training scores from [ensemble scores](https://zenodo.org/record/4068216) and put it in the folder `dataset/msmarco/`.
 
-### Data preprocessing
-To seperate training file, run
+
+### Run BM25 Baseline
+
+1. Set-up [pyserini](https://github.com/castorini/pyserini)
+2. Follow the instructions on [get bm25 score of MS marco passage ranking in pyserini](https://github.com/castorini/pyserini/blob/master/docs/experiments-msmarco-passage.md)
+3. Put the output of top-100 BM25 results in the folder `dataset/msmarco/` and name it as `bm25-top-100-49k.tsv`.
+4. Put the output of top-1000 BM25 results in the folder `dataset/msmarco/` and name it as `bm25-top-1000-49k.tsv`
+
+### Train Baseline DR model
+
+To train baseline DR model, do the following:
+````
+cd matchmaker
+python3 matchmaker/train.py \
+    --config-file config/train/defaults.yaml config/train/data/example-minial-dataset.yaml config/train/models/bert_dot.yaml \
+    --run-name msmarco-baseline-model
+````
+
+## Inference Baseline DR model
+
+To inference the baseline DR model, do the following:
+````
+
+python3 matchmaker/dense_retrieval.py encode+index+search \
+   --run-name baseline_dr \
+   --config config/dense_retrieval/base_setting.yaml config/dense_retrieval/dataset/msmarco_dev.yaml config/dense_retrieval/model/base.yaml
+````
+Remember to change model path in config/dense_retrieval/model/base.yaml to the trained model from above step.
+
+
+## Early Stopping Generation
+
+To seperate training file, run the following
+````
+cd matchmaker
+python3 generate_smart_earlystopping_retrieval.py 
+    --output-file ../dataset/msmarco/sampled_queries.tsv \
+    --candidate-metric ../dataset/msmarco/baseline.metrics.tsv\
+    --candidate-file ../dataset/msmarco/bm25-top-100-49k.tsv\
+    --qrel ../dataset/msmarco/qrels.dev.small.tsv \
+    --collection-file ../dataset/msmarco/collection.tsv \
+    --query-file ../dataset/msmarco/queries.dev.small.tsv
+
+````
+
+## Query Clustering
+
 
 ### To train the distilled model
+For model_choice: please see all available yaml files in config/train/modes/exp/
 ````
 cd matchmaker
 python3 matchmaker/train.py \
     --config-file config/train/defaults.yaml config/train/data/msmarco.yaml config/train/models/bert_dot.yaml config/train/modes/exp/{model_choice}.yaml \
     --run-name msmarco-${model_choice}
-
-# for model_choice: please see all available yaml files in config/train/modes/exp/
 ````
 
 ### To inference
+
+Note: please specify the path of trained models in config/dense_retrieval/model/example.yaml
 ````
 python3 matchmaker/dense_retrieval.py encode+index+search --run-name {cmodel_choice} \
         --config config/dense_rertrieval/base_setting.yaml config/dense_rertrieval/dataset/msmarco_dev.yaml config/dense_retrieval/model/example.yaml
 
-#Note: please specify the path of trained models in config/dense_retrieval/model/example.yaml
 ````
+
+
+## To reproduce for Amazon_shopping_queries
+
+### Data preparation
 
 
 

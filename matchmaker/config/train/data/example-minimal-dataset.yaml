@@ -4,22 +4,22 @@
 # for BERT-based training, where you don't need idfs and the other helper data for some non-bert models
 
 # the folder where experiments are saved
-expirement_base_path: "/path/to/experiments"
+expirement_base_path: "../../TAS-query-original"
 
 #
 # training path
 #
 # format: query-text<tab>pos-text<tab>neg-text
 # format (if train_pairwise_distillation:True): score-pos<tab>score-neg<tab>query-text<tab>pos-text<tab>neg-text
-train_tsv: "/path/to/train/triples.train.tsv"
+train_tsv: "../../dataset/msmarco/triples.train.tsv"
 
 #
 # continuous validation path
 #
 validation_cont:
   # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
-  tsv: "/path/to/validation/bm25_plain_top100.tsv"
-  qrels: "/path/to/qrels/qrels.dev.tsv"
+  tsv: "../../dataset/msmarco/bm25_plain_top100.tsv"
+  qrels: "../../dataset/msmarco/qrels.dev.tsv"
   binarization_point: 1 # qrely label >= for MRR,MAP,Recall -> 1 others 0
   save_only_best: True
 
@@ -30,8 +30,8 @@ validation_cont:
 validation_end:
   top1000orSomeOtherName:
     # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
-    tsv: "/path/to/validation/bm25_plain_top1000.tsv"
-    qrels: "/path/to/qrels/qrels.dev.tsv"
+    tsv: "../../dataset/msmarco/bm25_plain_top1000.tsv"
+    qrels: "../../dataset/msmarco/qrels.dev.tsv"
     binarization_point: 1
     save_secondary_output: True
 
@@ -42,8 +42,8 @@ validation_end:
 test:
   top1000orSomeOtherName:
     # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
-    tsv: "/path/to/test/bm25_plain_top1000.tsv"
-    qrels: "/path/to/qrels/qrels.dev.tsv"
+    tsv: "../../dataset/msmarco/bm25_plain_top1000.tsv"
+    qrels: "../../dataset/msmarco/qrels.dev.tsv"
     binarization_point: 1
     save_secondary_output: True
 
@@ -51,8 +51,8 @@ test:
 # [optional] "leaderboard" for only inference without qrels and evaluation, just creates the ranking
 # comment out if not needed
 #
-leaderboard:
-  msmarco_leaderboard_eval:
-    # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
-    tsv: "/path/to/leaderboard/bm25_plain_top1000.tsv"
-    save_secondary_output: False
+#leaderboard:
+#  msmarco_leaderboard_eval:
+#    # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
+#    tsv: "/path/to/leaderboard/bm25_plain_top1000.tsv"
+#    save_secondary_output: False
