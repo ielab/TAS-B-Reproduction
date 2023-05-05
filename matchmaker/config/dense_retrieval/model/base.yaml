@@ -1,2 +1,2 @@
 ## remember to change the path to your trained model
-trained_model: ../../TAS-query-original/base_model_path
+trained_model: ../TAS-query-original/base_model_path

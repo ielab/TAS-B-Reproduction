@@ -9,8 +9,8 @@
 trained_model: config/huggingface_modelhub/sebastian-hofstaetter/distilbert-dot-margin_mse-T2-msmarco
 inference_batch_size: 1024
 random_seed: 208973249
-index_queries_tsv: "/scratch/itee/uqswan37/balance_training/dataset/msmarco/queries.train.tsv"
+index_queries_tsv: "../dataset/msmarco/queries.train.tsv"
 use_fp16: True
-cluster_queries_tsv: "/scratch/itee/uqswan37/balance_training/dataset/msmarco/queries.train.tsv"
-expirement_base_path: "/scratch/itee/uqswan37/balance_training/TAS-query-original"
+cluster_queries_tsv: "../dataset/msmarco/queries.train.tsv"
+expirement_base_path: "../TAS-query-original"
 

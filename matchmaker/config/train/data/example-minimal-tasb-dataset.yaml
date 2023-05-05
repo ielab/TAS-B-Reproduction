@@ -4,25 +4,25 @@
 # for BERT-based training, where you don't need idfs and the other helper data for some non-bert models
 
 # the folder where experiments are saved
-expirement_base_path: "../../TAS-query-original"
+expirement_base_path: "../TAS-query-original"
 
 #
 # TAS-B training files
 #
 
-dynamic_query_file: "../../dataset/msmarco/queries.train.tsv"
-dynamic_collection_file: "../../dataset/msmarco/collection.tsv"
-dynamic_pairs_with_teacher_scores: "../../Data_Sophia/bert_cat_ensemble_msmarcopassage_train_scores_ids.tsv"
-dynamic_query_cluster_file: "../../TAS-query-original/rubbish/2023-01-01_2150_a/cluster-assignment-ids.tsv"
-train_tsv: "../../dataset/msmarco/triples.train.small.tsv"
+dynamic_query_file: "../dataset/msmarco/queries.train.tsv"
+dynamic_collection_file: "../dataset/msmarco/collection.tsv"
+dynamic_pairs_with_teacher_scores: "../Data_Sophia/bert_cat_ensemble_msmarcopassage_train_scores_ids.tsv"
+dynamic_query_cluster_file: "../TAS-query-original/rubbish/2023-01-01_2150_a/cluster-assignment-ids.tsv"
+train_tsv: "../dataset/msmarco/triples.train.small.tsv"
 
 #
 # continuous validation path
 #
 validation_cont:
   # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
-  tsv: "../../dataset/msmarco/sampled_queries.tsv"
-  qrels: "../../dataset/msmarco/qrels.dev.tsv"
+  tsv: "../dataset/msmarco/sampled_queries.tsv"
+  qrels: "../dataset/msmarco/qrels.dev.tsv"
   binarization_point: 1 # qrely label >= for MRR,MAP,Recall -> 1 others 0
   save_only_best: True
 #
@@ -32,8 +32,8 @@ validation_cont:
 validation_end:
   top1000orSomeOtherName:
     # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
-    tsv: "../../dataset/msmarco/queries.dev_7k.tsv"
-    qrels: "../../pyserini/collections/msmarco-passage/qrels.dev.small.trec"
+    tsv: "../dataset/msmarco/queries.dev_7k.tsv"
+    qrels: "../pyserini/collections/msmarco-passage/qrels.dev.small.trec"
     binarization_point: 1
     save_secondary_output: True
 
@@ -44,8 +44,8 @@ validation_end:
 test:
   top1000orSomeOtherName:
     # format: query-id<tab>doc-id<tab>query-text<tab>doc-text
-    tsv: "../../dataset/msmarco/bm25-top-1000.tsv"
-    qrels: "../../dataset/msmarco/qrels.dev.tsv"
+    tsv: "../dataset/msmarco/bm25-top-1000.tsv"
+    qrels: "../dataset/msmarco/qrels.dev.tsv"
     binarization_point: 1
     save_secondary_output: True
 

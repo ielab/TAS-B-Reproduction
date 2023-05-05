@@ -12,5 +12,5 @@ random_seed: 208973249
 index_queries_tsv: "/scratch/project/neural_ir/dylan/balance_training/esci-data-main/shopping_queries_dataset/queries_train_amazon.tsv"
 use_fp16: True
 cluster_queries_tsv: "/scratch/project/neural_ir/dylan/balance_training/esci-data-main/shopping_queries_dataset/queries_train_amazon.tsv"
-expirement_base_path: "/scratch/project/neural_ir/dylan/balance_training/TAS-query-original/"
+expirement_base_path: "../TAS-query-original/"
 

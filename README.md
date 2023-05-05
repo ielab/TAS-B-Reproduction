@@ -27,34 +27,47 @@ python3 matchmaker/train.py \
     --run-name msmarco-baseline-model
 ````
 
-## Inference Baseline DR model
+### Inference Baseline DR model
 
-To inference the baseline DR model, do the following:
+To inference the baseline DR model for msmarco_dev 49k, do the following:
 ````
-
 python3 matchmaker/dense_retrieval.py encode+index+search \
-   --run-name baseline_dr \
-   --config config/dense_retrieval/base_setting.yaml config/dense_retrieval/dataset/msmarco_dev.yaml config/dense_retrieval/model/base.yaml
+   --run-name baseline_dr_49k \
+   --config config/dense_retrieval/base_setting.yaml config/dense_retrieval/dataset/msmarco_dev_49k.yaml config/dense_retrieval/model/base.yaml
 ````
 Remember to change model path in config/dense_retrieval/model/base.yaml to the trained model from above step.
 
+Then generate evaluation using the following: 
 
-## Early Stopping Generation
+````
+cd ..
+python3 pre_processing/all_result_to_trec_n_evaluate.py \
+    --input_folder TAS-query-original/baseline_dr_49k #Please Specify the inferenced folder adress from the last step \
+    --qrel dataset/msmarco/qrel.dev.tsv \
+    --trec_eval trec_eval/trec_eval  #Please Do specify the location of your trec_eval in your system
+````
 
+### Early Stopping Generation
 To seperate training file, run the following
 ````
 cd matchmaker
 python3 generate_smart_earlystopping_retrieval.py 
     --output-file ../dataset/msmarco/sampled_queries.tsv \
-    --candidate-metric ../dataset/msmarco/baseline.metrics.tsv\
+    --candidate-metric ../TAS-query-original/baseline_dr_49k/ndcg.trec \
     --candidate-file ../dataset/msmarco/bm25-top-100-49k.tsv\
     --qrel ../dataset/msmarco/qrels.dev.small.tsv \
     --collection-file ../dataset/msmarco/collection.tsv \
     --query-file ../dataset/msmarco/queries.dev.small.tsv
-
 ````
 
-## Query Clustering
+### Query Clustering
+Run the following code for query clustering preprocessing
+````
+python3 matchmaker/distillation/query_clusterer.py 
+    --run-name msmarco_query_clustered \
+    --config-file config/train/defaults.yaml config/train/cluster_model.yaml
+````
+The expected outcome includes 
 
 
 ### To train the distilled model
