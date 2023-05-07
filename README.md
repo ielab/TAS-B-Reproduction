@@ -97,7 +97,7 @@ Download data from [Amazon_shopping_queries](https://github.com/amazon-science/e
 
 ````
 git clone https://github.com/amazon-science/esci-data.git
-mv esci-data/shopping_queries_dataset/ dataset/amazon/
+mv esci-data/shopping_queries_dataset/* dataset/amazon/
 ````
 
 you can prepare the files for products by running the code below:
