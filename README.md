@@ -82,10 +82,10 @@ python3 matchmaker/train.py \
 ### To inference
 
 Note: please specify the path of trained models in config/dense_retrieval/model/example.yaml
+On the other hand, creating your own yaml file is also possible. Please refer to the example.yaml for the format.
 ````
 python3 matchmaker/dense_retrieval.py encode+index+search --run-name {cmodel_choice} \
         --config config/dense_rertrieval/base_setting.yaml config/dense_rertrieval/dataset/msmarco_dev.yaml config/dense_retrieval/model/example.yaml
-
 ````
 
 
@@ -93,13 +93,47 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {cmodel_cho
 
 ### Data preparation
 
+Download data from [Amazon_shopping_queries](https://github.com/amazon-science/esci-data)
+
+````
+git clone https://github.com/amazon-science/esci-data.git
+mv esci-data/shopping_queries_dataset/ dataset/amazon/
+````
+
+you can prepare the files for products by running the code below:
+
+````
+python3 pre_processing/aamazon_collection_convert_to_json.py \
+    --input dataset/amazon/collection_amazon.tsv \
+    --output dataset/amazon/collection_amazon.json
+````
+
+Then for queries:
+
+
+
+### Train the baseline DR model
+
+
+### Inference the baseline DR model
+
+
+### Get teacher emsembled scores
+
+
+### Train the distilled model
+
+
+### Inference the distilled model
 
 
 
 
 
 
-# Train a Dense Retriever (BERT_DOT) with TAS-Balanced & Dual-Supervision
+
+
+# Below is the code instruction from original paper that you may find helpful
 
 This guide builds up on: [dense_retrieval_train.md](dense_retrieval_train.md)
 
