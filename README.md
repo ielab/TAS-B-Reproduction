@@ -97,19 +97,22 @@ Download data from [Amazon_shopping_queries](https://github.com/amazon-science/e
 
 ````
 git clone https://github.com/amazon-science/esci-data.git
-mv esci-data/shopping_queries_dataset/ dataset/amazon/
+mv esci-data/shopping_queries_dataset/* dataset/amazon/
 ````
 
-you can prepare the files for products by running the code below:
+First pre-process the data by running the following code:
+
+````
+python3 pre_processing/get_amazon_task1.py --folder dataset/amazon/
+````
+
+Then for documents, further process using the following code
 
 ````
 python3 pre_processing/aamazon_collection_convert_to_json.py \
     --input dataset/amazon/collection_amazon.tsv \
     --output dataset/amazon/collection_amazon.json
 ````
-
-Then for queries:
-
 
 
 ### Train the baseline DR model
