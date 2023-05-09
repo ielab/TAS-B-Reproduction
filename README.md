@@ -88,6 +88,8 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {cmodel_cho
         --config config/dense_rertrieval/base_setting.yaml config/dense_rertrieval/dataset/msmarco_dev.yaml config/dense_retrieval/model/example.yaml
 ````
 
+Note, you can also change the dataset by changing the msmarco_dev.yaml to trec_dl_2019.yaml or trec_dl_2020.yaml
+
 
 ## To reproduce for Amazon_shopping_queries
 
