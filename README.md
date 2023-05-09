@@ -67,7 +67,7 @@ python3 matchmaker/distillation/query_clusterer.py
     --run-name msmarco_query_clustered \
     --config-file config/train/defaults.yaml config/train/cluster_model.yaml
 ````
-The expected outcome includes 
+The expected outcome includes two files: cluster-assignment-ids.tsv and cluster-assignment-text.tsv.
 
 
 ### To train the distilled model
@@ -103,36 +103,86 @@ mv esci-data/shopping_queries_dataset/* dataset/amazon/
 First pre-process the data by running the following code:
 
 ````
-python3 pre_processing/get_amazon_task1.py --folder dataset/amazon/
+python3 pre_processing/amazon_data/get_amazon_task1.py --folder dataset/amazon/
 ````
 
 Then for documents, further process using the following code
 
 ````
-python3 pre_processing/aamazon_collection_convert_to_json.py \
+python3 pre_processing/amazon_data/amazon_collection_convert_to_json.py \
     --input dataset/amazon/collection_amazon.tsv \
     --output dataset/amazon/collection_amazon.json
+````
+
+### Query Clustering
+Run the following code for query clustering preprocessing
+````
+python3 matchmaker/distillation/query_clusterer.py 
+    --run-name amazon_query_clustered \
+    --config-file config/train/defaults.yaml config/train/cluster_model_amazon.yaml
 ````
 
 
 ### Train the baseline DR model
 
+Start to train the baseline DR model by running the following code:
+
+````
+cd matchmaker
+python3 matchmaker/train.py \
+    --config-file config/train/defaults.yaml config/train/data/amazon_data.yaml config/train/models/bert_dot.yaml \
+    --run-name amazon_baseline_model
+````
+
+
 
 ### Inference the baseline DR model
+
+````
+python3 matchmaker/dense_retrieval.py encode+index+search \
+   --run-name baseline_dr_amazon \
+   --config config/dense_retrieval/base_setting.yaml config/dense_retrieval/dataset/amazon_train.yaml config/dense_retrieval/model/base.yaml
+````
 
 
 ### Get teacher emsembled scores
 
+To get teacher emsembled scores, first, you need to get scores of training queries using BERT, ALBERT, and BERT-LARGE
+
+First, preprocess the data by running the following code:
+
+````
+python3 pre_processing/amazon_data/create_qid_pid_triples.py --folder dataset/amazon/
+
+python3 pre_processing/amazon_data/generate_scoring_file.py 
+
+````
+
+Then, run the following code to get scores of training queries using BERT, ALBERT, and BERT-LARGE
+
+````
+python3 pre_processing/amazon_data/run_teacher_scores.py
+
+python3 fusing_teacher_scorings.py
+````
 
 ### Train the distilled model
+For model_choice: please see all available yaml files in config/train/modes/exp/
+````
+cd matchmaker
+python3 matchmaker/train.py \
+    --config-file config/train/defaults.yaml config/train/data/amazon_data.yaml config/train/models/bert_dot.yaml config/train/modes/exp/{model_choice}.yaml \
+    --run-name amazon-${model_choice}
+````
 
+### To inference
 
-### Inference the distilled model
-
-
-
-
-
+Note: please specify the path of trained models in config/dense_retrieval/model/example.yaml
+On the other hand, creating your own yaml file is also possible. Please refer to the example.yaml for the format.
+````
+python3 matchmaker/dense_retrieval.py encode+index+search --run-name {model_choice} \
+        --config config/dense_rertrieval/base_setting.yaml config/dense_rertrieval/dataset/amazon_data.yaml config/dense_retrieval/model/example.yaml
+````
 
 
 

@@ -3,7 +3,7 @@ from tqdm import tqdm
 file1 = "TAS-query-original/2023-02-10_1629_bert-base-uncased/test_top1000orSomeOtherName-output.txt"
 file2 = "TAS-query-original/2023-02-10_1638_albert/test_top1000orSomeOtherName-output.txt"
 file3 = "TAS-query-original/2023-02-10_1638_bert_large/test_top1000orSomeOtherName-output.txt"
-out_fused = open("../esci-data-main/shopping_queries_dataset/teacher_fused_test.trec", 'w')
+out_fused = open("../../esci-data-main/shopping_queries_dataset/teacher_fused_test.trec", 'w')
 files = [file1, file2, file3]
 score_dict = {}
 
