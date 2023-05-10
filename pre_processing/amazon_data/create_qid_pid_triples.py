@@ -4,19 +4,16 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--input_file', type=str, default="/Users/shuaiwang/workspace/2023s1PHD/extra/Balance_training/esci-data-main/shopping_queries_dataset/triples_input_for_scoring.csv")
-parser.add_argument('--output_triples_with_scores', type=str, default="/Users/shuaiwang/workspace/2023s1PHD/extra/Balance_training/esci-data-main/shopping_queries_dataset/train")
+parser.add_argument('--input_qrel', type=str, default="qrels.train_amazon.tsv")
+parser.add_argument('--output_triples_with_scores', type=str, default="triples.tsv")
 
 args = parser.parse_args()
 
 rel_dict_positive = {}
 rel_dict_negative = {}
 
-qrel_file = "/esci-data-main/shopping_queries_dataset/qrels.train_amazon.tsv"
-
-out_triples = "/Users/shuaiwang/workspace/2023s1PHD/extra/Balance_training/esci-data-main/shopping_queries_dataset/triples_qid.tsv"
-
-
+qrel_file = args.input_qrel
+out_triples = args.output_triples_with_scores
 
 with open(qrel_file) as f:
     for line in f:

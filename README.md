@@ -154,18 +154,24 @@ To get teacher emsembled scores, first, you need to get scores of training queri
 First, preprocess the data by running the following code:
 
 ````
-python3 pre_processing/amazon_data/create_qid_pid_triples.py --folder dataset/amazon/
+python3 pre_processing/amazon_data/create_qid_pid_triples.py 
+    --input_qrel dataset/amazon/qrels.train_amazon.tsv \
+    --output_triples_with_scores dataset/amazon/triples_train.tsv
 
 python3 pre_processing/amazon_data/generate_scoring_file.py 
-
+    --queries_file dataset/amazon/queries_train_amazon.tsv\
+    --collection_file dataset/qrel.train_amazon.tsv \
+    --input_triples dataset/amazon/triples_train.tsv \
+    --output_scoring_file dataset/amazon/scoring_file.tsv
 ````
+change train to valid/test to preprocess the data for validation/test set
 
 Then, run the following code to get scores of training queries using BERT, ALBERT, and BERT-LARGE
 
 ````
-python3 pre_processing/amazon_data/run_teacher_scores.py
+python3 pre_processing/amazon_data/run_teacher_scores.py 
 
-python3 fusing_teacher_scorings.py
+python3 pre_processing/amazon_data/fusing_teacher_scorings.py
 ````
 
 ### Train the distilled model
