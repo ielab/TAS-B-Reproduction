@@ -214,15 +214,17 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {model_choi
 
 ### Our trained model weights are avilabable at [huggingface/ielabgroup](https://huggingface.co/ielabgroup)
 
-#### Comming soon
-<!--
+
 | Type                       | Path                                                  |
 |----------------------------|-------------------------------------------------------|
-| Baseline                   | sebastian-hofstaetter/distilbert-dot-tas_b-b256-msmarco |
-| Pairwise Random            | ielabgroup/Reproduced_Pairwise_Random_Msmarco         |
-| Pairwise TAS               | ielabgroup/Reproduced_Pairwise_TAS_Msmarco            |
-| Pairwise TAS-B             | ielabgroup/Reproduced_Pairwise_TAS-B_Msmarco          |
-| Pairwise TAS-B-HM          | ielabgroup/Reproduced_Pairwise_TAS-B-HM_Msmarco       |
+| Baseline                   | ielabgroup/Baseline_Amazon_esci |
+| Pairwise Random            | ielabgroup/Pairwise_Random_Amazon_esci         |
+| Pairwise TAS               | ielabgroup/Pairwise_TAS_Amazon_esci            |
+| Pairwise TAS-B             | ielabgroup/Pairwise_TAS-B_Amazon_esci          |
+| Pairwise TAS-B-HM          | ielabgroup/Pairwise_TAS-B-HM_Amazon_esci       |
+
+#### More Models Coming soon
+<!--
 | In Batch Random            | ielabgroup/Reproduced_In_Batch_Random_Msmarco         |
 | In Batch TAS               | ielabgroup/Reproduced_In_Batch_TAS_Msmarco            |
 | In Batch TAS-B             | ielabgroup/Reproduced_In_Batch_TAS-B_Msmarco                                      |
