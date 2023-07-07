@@ -222,18 +222,15 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {model_choi
 | Pairwise TAS               | ielabgroup/Pairwise_TAS_Amazon_esci            |
 | Pairwise TAS-B             | ielabgroup/Pairwise_TAS-B_Amazon_esci          |
 | Pairwise TAS-B-HM          | ielabgroup/Pairwise_TAS-B-HM_Amazon_esci       |
+| In Batch Random            | ielabgroup/In_Batch_Random_Amazon_esci         |
+| In Batch TAS               | ielabgroup/In_Batch_TAS_Amazon_esci            |
+| In Batch TAS-B             | ielabgroup/In_Batch_TAS-B_Amazon_esci                                      |
+| In Batch TAS-B-HM          | ielabgroup/In_Batch_TAS-B-HM_Amazon_esci                                      |
+| Pairwise+In Batch Random   | ielabgroup/Pairwise_In_Batch_Random_Amazon_esci                                      |
+| Pairwise+In Batch TAS      | ielabgroup/Pairwise_In_Batch_TAS_Amazon_esci                                      |
+| Pairwise+In Batch TAS-B    | ielabgroup/Pairwise_In_Batch_TAS-B_Amazon_esci                                      |
+| Pairwise+In Batch TAS-B-HM | ielabgroup/Pairwise_In_Batch_TAS-B-HM_Amazon_esci                                      |
 
-#### More Models Coming soon
-<!--
-| In Batch Random            | ielabgroup/Reproduced_In_Batch_Random_Msmarco         |
-| In Batch TAS               | ielabgroup/Reproduced_In_Batch_TAS_Msmarco            |
-| In Batch TAS-B             | ielabgroup/Reproduced_In_Batch_TAS-B_Msmarco                                      |
-| In Batch TAS-B-HM          | ielabgroup/Reproduced_In_Batch_TAS-B-HM_Msmarco                                      |
-| Pairwise+In Batch Random   | ielabgroup/Reproduced_Pairwise_In_Batch_Random_Msmarco                                      |
-| Pairwise+In Batch TAS      | ielabgroup/Reproduced_Pairwise_In_Batch_TAS_Msmarco                                      |
-| Pairwise+In Batch TAS-B    | ielabgroup/Reproduced_Pairwise_In_Batch_TAS-B_Msmarco                                      |
-| Pairwise+In Batch TAS-B-HM | ielabgroup/Reproduced_Pairwise_In_Batch_TAS-B-HM_Msmarco                                      |
--->
 
 
 
