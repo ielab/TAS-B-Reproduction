@@ -90,6 +90,25 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {cmodel_cho
 
 Note, you can also change the dataset by changing the msmarco_dev.yaml to trec_dl_2019.yaml or trec_dl_2020.yaml
 
+### Our trained model weights are available at [huggingface/ielabgroup](https://huggingface.co/ielabgroup)
+
+| Type                       | Path                                                  |
+|----------------------------|-------------------------------------------------------|
+| Baseline                   | sebastian-hofstaetter/distilbert-dot-tas_b-b256-msmarco |
+| Pairwise Random            | ielabgroup/Reproduced_Pairwise_Random_Msmarco         |
+| Pairwise TAS               | ielabgroup/Reproduced_Pairwise_TAS_Msmarco            |
+| Pairwise TAS-B             | ielabgroup/Reproduced_Pairwise_TAS-B_Msmarco          |
+| Pairwise TAS-B-HM          | ielabgroup/Reproduced_Pairwise_TAS-B-HM_Msmarco       |
+| In Batch Random            | ielabgroup/Reproduced_In_Batch_Random_Msmarco         |
+| In Batch TAS               | ielabgroup/Reproduced_In_Batch_TAS_Msmarco            |
+| In Batch TAS-B             | ielabgroup/Reproduced_In_Batch_TAS-B_Msmarco                                      |
+| In Batch TAS-B-HM          | ielabgroup/Reproduced_In_Batch_TAS-B-HM_Msmarco                                      |
+| Pairwise+In Batch Random   | ielabgroup/Reproduced_Pairwise_In_Batch_Random_Msmarco                                      |
+| Pairwise+In Batch TAS      | ielabgroup/Reproduced_Pairwise_In_Batch_TAS_Msmarco                                      |
+| Pairwise+In Batch TAS-B    | ielabgroup/Reproduced_Pairwise_In_Batch_TAS-B_Msmarco                                      |
+| Pairwise+In Batch TAS-B-HM | ielabgroup/Reproduced_Pairwise_In_Batch_TAS-B-HM_Msmarco                                      |
+
+
 
 ## To reproduce for Amazon_shopping_queries
 
@@ -191,6 +210,30 @@ On the other hand, creating your own yaml file is also possible. Please refer to
 python3 matchmaker/dense_retrieval.py encode+index+search --run-name {model_choice} \
         --config config/dense_rertrieval/base_setting.yaml config/dense_rertrieval/dataset/amazon_data.yaml config/dense_retrieval/model/example.yaml
 ````
+
+
+### Our trained model weights are avilabable at [huggingface/ielabgroup](https://huggingface.co/ielabgroup)
+
+#### Comming soon
+<!--
+| Type                       | Path                                                  |
+|----------------------------|-------------------------------------------------------|
+| Baseline                   | sebastian-hofstaetter/distilbert-dot-tas_b-b256-msmarco |
+| Pairwise Random            | ielabgroup/Reproduced_Pairwise_Random_Msmarco         |
+| Pairwise TAS               | ielabgroup/Reproduced_Pairwise_TAS_Msmarco            |
+| Pairwise TAS-B             | ielabgroup/Reproduced_Pairwise_TAS-B_Msmarco          |
+| Pairwise TAS-B-HM          | ielabgroup/Reproduced_Pairwise_TAS-B-HM_Msmarco       |
+| In Batch Random            | ielabgroup/Reproduced_In_Batch_Random_Msmarco         |
+| In Batch TAS               | ielabgroup/Reproduced_In_Batch_TAS_Msmarco            |
+| In Batch TAS-B             | ielabgroup/Reproduced_In_Batch_TAS-B_Msmarco                                      |
+| In Batch TAS-B-HM          | ielabgroup/Reproduced_In_Batch_TAS-B-HM_Msmarco                                      |
+| Pairwise+In Batch Random   | ielabgroup/Reproduced_Pairwise_In_Batch_Random_Msmarco                                      |
+| Pairwise+In Batch TAS      | ielabgroup/Reproduced_Pairwise_In_Batch_TAS_Msmarco                                      |
+| Pairwise+In Batch TAS-B    | ielabgroup/Reproduced_Pairwise_In_Batch_TAS-B_Msmarco                                      |
+| Pairwise+In Batch TAS-B-HM | ielabgroup/Reproduced_Pairwise_In_Batch_TAS-B-HM_Msmarco                                      |
+-->
+
+
 
 
 
