@@ -90,7 +90,8 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {cmodel_cho
 
 Note, you can also change the dataset by changing the msmarco_dev.yaml to trec_dl_2019.yaml or trec_dl_2020.yaml
 
-### Our trained model weights are available at [huggingface/ielabgroup](https://huggingface.co/ielabgroup)
+### Our trained model weights are available at [huggingface/ielabgroup](https://huggingface.co/ielabgroup), try out the model weight using [minimal_bert_dot_usage_example.ipynb](https://github.com/sebastian-hofstaetter/tas-balanced-dense-retrieval/blob/main/minimal_bert_dot_usage_example.ipynb)
+
 
 | Type                       | Path                                                  |
 |----------------------------|-------------------------------------------------------|
@@ -212,7 +213,8 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {model_choi
 ````
 
 
-### Our trained model weights are avilabable at [huggingface/ielabgroup](https://huggingface.co/ielabgroup)
+### Our trained model weights are avilabable at [huggingface/ielabgroup](https://huggingface.co/ielabgroup), try out the model weight using [minimal_bert_dot_usage_example.ipynb](https://github.com/sebastian-hofstaetter/tas-balanced-dense-retrieval/blob/main/minimal_bert_dot_usage_example.ipynb)
+
 
 
 | Type                       | Path                                                  |
@@ -233,10 +235,9 @@ python3 matchmaker/dense_retrieval.py encode+index+search --run-name {model_choi
 
 
 
+# Appendix
 
-
-
-# Below is the code instruction from original paper that you may find helpful
+## Below is the code instruction from original paper that you may find helpful
 
 This guide builds up on: [dense_retrieval_train.md](dense_retrieval_train.md)
 
