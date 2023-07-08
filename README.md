@@ -41,7 +41,7 @@ Then generate evaluation using the following:
 
 ````
 cd ..
-python3 pre_processing/all_result_to_trec_n_evaluate.py \
+python3 pre_processing/msmarco/all_result_to_trec_n_evaluate.py \
     --input_folder TAS-query-original/baseline_dr_49k #Please Specify the inferenced folder adress from the last step \
     --qrel dataset/msmarco/qrel.dev.tsv \
     --trec_eval trec_eval/trec_eval  #Please Do specify the location of your trec_eval in your system
